@@ -60,6 +60,6 @@ BEGIN
     LTEXT           "Version : ",IDC_STATIC,103,25,31,8
     LTEXT           "Licence : GPL",IDC_STATIC,105,50,43,8
     PUSHBUTTON      "Close",IDCLOSE,105,133,50,14
-    LTEXT           "1.0",IDC_STATIC,135,25,19,8
+    LTEXT           VERSION_VALUE,IDC_STATIC,135,25,19,8
 END
 
