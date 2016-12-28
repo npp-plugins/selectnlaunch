@@ -216,17 +216,17 @@ HWND getCurrentScintillaHandle() {
 
 
 
-int getCmdsFromConf(const TCHAR *confPath, CmdParam *cmdParam, int /*maxNbCmd*/)
+int getCmdsFromConf(const TCHAR *confPathValue, CmdParam * /*cmdParamValue*/, int /*maxNbCmd*/)
 {
 	TCHAR cmdNames[MAX_PATH];
-	::GetPrivateProfileSectionNames(cmdNames, MAX_PATH, confPath);
+	::GetPrivateProfileSectionNames(cmdNames, MAX_PATH, confPathValue);
 	TCHAR *pFn = cmdNames;
 
 	int i = 0;
 	while (*pFn)
 	{
 		TCHAR extVal[64];
-		GetPrivateProfileString(pFn, TEXT("ext"), TEXT("invalid"), extVal, 64, confPath);
+		GetPrivateProfileString(pFn, TEXT("ext"), TEXT("invalid"), extVal, 64, confPathValue);
 
 		if (lstrcmp(extVal, TEXT("invalid")) != 0)
 		{
@@ -234,7 +234,7 @@ int getCmdsFromConf(const TCHAR *confPath, CmdParam *cmdParam, int /*maxNbCmd*/)
 			lstrcpy(cmdParam[i]._ext, extVal);
 
 			TCHAR convertFunc[64];
-			GetPrivateProfileString(pFn, TEXT("convertFunc"), TEXT("invalid"), convertFunc, 64, confPath);
+			GetPrivateProfileString(pFn, TEXT("convertFunc"), TEXT("invalid"), convertFunc, 64, confPathValue);
 
 			if (lstrcmp(convertFunc, TEXT("b64decode")) == 0)
 			{
