@@ -96,7 +96,7 @@ struct CmdParam {
 // convertFuncType
 #define BASE64DECODE 0
 
-int getCmdsFromConf(const TCHAR *confPath, CmdParam *cmdParam, int maxNbCmd);
+int getCmdsFromConf(const TCHAR *confPathValue, CmdParam *cmdParamValue, int maxNbCmd);
 void selectNlaunch(TCHAR *ext, int converFuncType);
 void selectNlaunch_00();
 void selectNlaunch_01();
