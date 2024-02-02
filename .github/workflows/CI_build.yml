@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v2
 
     - name: MSBuild of plugin dll
       working-directory: vs.proj\
@@ -34,7 +34,7 @@ jobs:
 
     - name: Archive artifacts for x64
       if: matrix.build_platform == 'x64' && matrix.build_configuration == 'Release'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
           name: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip
           path: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip
@@ -48,7 +48,7 @@ jobs:
 
     - name: Archive artifacts for Win32
       if: matrix.build_platform == 'Win32' && matrix.build_configuration == 'Release'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
           name: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip
           path: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip
@@ -62,7 +62,7 @@ jobs:
 
     - name: Archive artifacts for ARM64
       if: matrix.build_platform == 'ARM64' && matrix.build_configuration == 'Release'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
           name: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip
           path: selectNLaunch_${{ steps.tagName.outputs.tag }}_${{ matrix.build_platform }}.zip

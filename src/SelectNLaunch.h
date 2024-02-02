@@ -81,7 +81,7 @@ void printInt(int int2print)
 };
 
 struct CmdParam {
-	TCHAR _cmdName[nbChar];
+	TCHAR _cmdName[menuItemSize];
 	PFUNCPLUGINCMD _pMainFunc;
 	TCHAR _ext[10];
 	int _convertFuncType;
